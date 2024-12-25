@@ -1,0 +1,18 @@
+version: '2'
+services:
+  server:
+    image: 'dokuwiki/dokuwiki:stable'
+    ports:
+    - '127.0.0.1:13080:8080'
+    - '127.0.0.1:18443:8443'
+    volumes:
+    - './dokuwiki_data:/storage'
+    user: root
+    environment:
+    - DOKUWIKI_USERNAME=test
+    - DOKUWIKI_PASSWORD=yoo#L3ao
+    - DOKUWIKI_FULL_NAME=test
+    - DOKUWIKI_WIKI_NAME=test
+    - DOKUWIKI_EMAIL=test@test.com
+    restart: unless-stopped 
+

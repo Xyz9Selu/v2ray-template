@@ -1,0 +1,10 @@
+services:
+  xray_ws:
+    image: teddysun/xray
+    ports:
+      - "127.0.0.1:33685:80/tcp"
+      - "127.0.0.1:33685:80/udp"
+    volumes:
+      - ./config.json:/etc/xray/config.json
+      - ./logs/:/var/log/xray/
+    restart: unless-stopped

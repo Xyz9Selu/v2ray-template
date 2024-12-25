@@ -1,0 +1,14 @@
+version: '3'
+services:
+  xray-client:
+    image: teddysun/xray
+    container_name: xray-client
+    ports:
+      - 127.0.0.1:1080:1080
+      - 127.0.0.1:1081:1081
+    volumes:
+      - ./config.json:/etc/xray/config.json
+      - ./logs/:/var/log/xray/
+      - ./geoip.dat:/usr/share/xray/geoip.dat
+      - ./geosite.dat:/usr/share/xray/geosite.dat
+    restart: unless-stopped

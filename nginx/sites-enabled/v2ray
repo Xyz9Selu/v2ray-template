@@ -1,0 +1,18 @@
+server {
+    listen 80;
+    server_name <your-vless-server-host>;
+
+    location / {
+        proxy_pass http://localhost:13080/;
+        include     proxy_params;
+    }
+
+    location /<your-vless-server-path> {
+        proxy_redirect off;
+        proxy_pass http://127.0.0.1:33685;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection "upgrade";
+        proxy_set_header Host $http_host;
+    }
+}
