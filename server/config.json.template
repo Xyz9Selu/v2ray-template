@@ -29,7 +29,47 @@
     {
       "protocol": "freedom",
       "settings": {}
+    },
+    {
+      "protocol": "socks",
+      "tag": "socks5-proxy",
+      "settings": {
+        "servers": [
+          {
+            "address": "socks5.proxy.ip",
+            "port": 8022,
+            "users": [
+              {
+                "user": "username",
+                "pass": "password",
+                "level": 0
+              }
+            ]
+          }
+        ]
+      }
     }
-  ]
+  ],
+  "dns": {
+    "servers": [
+      {
+        "address": "1.1.1.1",
+        "domains": [
+          "example.com"
+        ]
+      }
+    ],
+    "clientIp": "45.62.116.60"
+  },
+  "routing": {
+    "rules": [
+      {
+        "type": "field",
+        "outboundTag": "socks5-proxy",
+        "domain": [
+          "example.com"
+        ]
+      }
+    ]
+  }
 }
-

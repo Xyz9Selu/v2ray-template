@@ -1,4 +1,4 @@
 .vscode
-*/config.json
+*/config*.json
 client/geoip.dat
 client/geosite.dat
